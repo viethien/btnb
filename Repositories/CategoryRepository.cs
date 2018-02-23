@@ -43,7 +43,7 @@ namespace Repositories
         public Models.Category GetById(int categoryId)
         {
             Category result = new Category();
-            string sqlQuery = string.Format("select * from {0} where CategoryID={1}", tableName, categoryId);
+            string sqlQuery = $"select * from {tableName} where CategoryID={categoryId}";
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             SqlDataReader dataReader = command.ExecuteReader();
             //load into the result object the returned row from the database
@@ -64,8 +64,11 @@ namespace Repositories
 
         public int Add(Models.Category category)
         {
-            var sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = string.Format("INSERT INTO {0} (CategoryName, Description) OUTPUT INSERTED.{1} VALUES (@CategoryName, @Description)", tableName, primaryColumn);
+            var sqlCommand = new SqlCommand
+            {
+                CommandText =
+                    $"INSERT INTO {tableName} (CategoryName, Description) OUTPUT INSERTED.{primaryColumn} VALUES (@CategoryName, @Description)"
+            };
             sqlCommand.Parameters.AddWithValue("@CategoryName", category.CategoryName);
             sqlCommand.Parameters.AddWithValue("@Description", category.Description);
             sqlCommand.Connection = _conn;
