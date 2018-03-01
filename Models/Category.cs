@@ -8,6 +8,7 @@ namespace Models
 {
     public class Category
     {
+        //Id for table
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
