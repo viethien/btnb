@@ -13,7 +13,7 @@ namespace Services
         private ICategoryRepository categoryRepository = new CategoryRepository();
         public List<Category> GetAll()
         {
-            return categoryRepository.GetAll();
+            return categoryRepository.GetAll(); //all product
         }
 
         public Models.Category GetById(int categoryId)
