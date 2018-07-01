@@ -25,7 +25,7 @@ namespace Repositories
         }
         public List<Models.Category> GetAll()
         {
-            List<Category> result = new List<Category>();
+            var result = new List<Category>();
             string sqlQuery = $"select * from {tableName}";
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             SqlDataReader dataReader = command.ExecuteReader();
