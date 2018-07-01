@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
+    /// <summary>
+    /// Category repository
+    /// Author: Nguyen Viet Hien
+    /// Updated 01-07-2018
+    /// </summary>
     public class CategoryRepository : ICategoryRepository
     {
         private readonly SqlConnection _conn;
