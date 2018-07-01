@@ -57,7 +57,7 @@ namespace Repositories
                 while (dataReader.Read())
                 {
                     result.CategoryID = int.Parse(dataReader["CategoryID"].ToString());
-                    result.Description = dataReader["CategoryDescription"].ToString();
+                    result.Description = dataReader["Description1"].ToString();
 
                     result.Summary = dataReader["Summary"].ToString();
                     result.CategoryName = dataReader["CategoryName"].ToString();
