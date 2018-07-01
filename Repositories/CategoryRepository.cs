@@ -52,13 +52,14 @@ namespace Repositories
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             var dataReader = command.ExecuteReader();
             //load into the result object the returned row from the database
-            if (dataReader.HasRows)
+            if (dataReader != null && dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
                     result.CategoryID = int.Parse(dataReader["CategoryID"].ToString());
                     result.Description = dataReader["Description"].ToString();
 
+                    result.Summary = dataReader["Summary"].ToString();
                     result.CategoryName = dataReader["CategoryName"].ToString();
                 }
             }
