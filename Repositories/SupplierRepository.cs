@@ -33,7 +33,7 @@ namespace Repositories
                         SupplierID = int.Parse(dataReader["SupplierID"].ToString()),
                         PostalCode = dataReader["PostalCode"].ToString(),
                         Region = dataReader["Region"].ToString(),
-                        Phone = dataReader["Phone1"].ToString(),
+                        Phone = dataReader["Phone"].ToString(),
                         HomePage = dataReader["HomePage"].ToString(),
                         Fax = dataReader["Fax"].ToString(),
                         Country = dataReader["Country"].ToString(),
