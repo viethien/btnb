@@ -48,7 +48,7 @@ namespace Repositories
         public Models.Category GetById(int categoryId)
         {
             var result = new Category();
-            string sqlQuery = $"select * from {tableName} where CategoryID={categoryId}";
+            string sqlQuery = $"select CategoryID, CategoryName from {tableName} where CategoryID={categoryId}";
             var command = new SqlCommand(sqlQuery, _conn);
             var dataReader = command.ExecuteReader();
             //load into the result object the returned row from the database
@@ -57,7 +57,7 @@ namespace Repositories
                 while (dataReader.Read())
                 {
                     result.CategoryID = int.Parse(dataReader["CategoryID"].ToString());
-                    result.Description = dataReader["Description"].ToString();
+                    result.Description = dataReader["CategoryDescription"].ToString();
 
                     result.Summary = dataReader["Summary"].ToString();
                     result.CategoryName = dataReader["CategoryName"].ToString();
