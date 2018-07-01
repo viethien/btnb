@@ -13,9 +13,9 @@ namespace Repositories
     {
         public SqlConnection Connection()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Northwind"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+            var connection = ConfigurationManager.ConnectionStrings["Northwind"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);
+            if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken || conn.State == ConnectionState.Executing)
             {
                 conn.Open();
             }
