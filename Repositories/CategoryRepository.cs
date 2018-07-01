@@ -58,7 +58,7 @@ namespace Repositories
                 }
             }
             dataReader.Close();
-            //conn.Close();
+            
             return result;
         }
 
@@ -73,7 +73,7 @@ namespace Repositories
             sqlCommand.Parameters.AddWithValue("@Description", category.Description);
             sqlCommand.Connection = _conn;
             var id = sqlCommand.ExecuteScalar();
-            return id != null ? (int)id : -1;
+            return (int?) id ?? -1;
         }
 
         public bool Update(Models.Category category)
