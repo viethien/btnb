@@ -13,14 +13,13 @@ namespace Repositories
     {
         public SqlConnection Connection()
         {
-            SqlConnection _conn;
             var connectionString = ConfigurationManager.ConnectionStrings["Northwind"].ConnectionString;
-            _conn = new SqlConnection(connectionString);
-            if (_conn.State == ConnectionState.Closed || _conn.State == ConnectionState.Broken)
+            SqlConnection conn = new SqlConnection(connectionString);
+            if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
             {
-                _conn.Open();
+                conn.Open();
             }
-            return _conn;
+            return conn;
         }
 
     }
