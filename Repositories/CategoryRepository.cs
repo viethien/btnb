@@ -49,10 +49,10 @@ namespace Repositories
         {
             var result = new Category();
             string sqlQuery = $"select * from {tableName} where CategoryID={categoryId}";
-            SqlCommand command = new SqlCommand(sqlQuery, _conn);
+            var command = new SqlCommand(sqlQuery, _conn);
             var dataReader = command.ExecuteReader();
             //load into the result object the returned row from the database
-            if (dataReader != null && dataReader.HasRows)
+            if (dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
@@ -99,7 +99,7 @@ namespace Repositories
             bool result = false;
 
             //Create the SQL Query for deleting an Category
-            var sqlQuery = string.Format("delete from {0} where categoryId = {1}", tableName, categoryId);
+            var sqlQuery = $"delete from {tableName} where categoryId = {categoryId}";
             //Create a Command object
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             // Execute the command
