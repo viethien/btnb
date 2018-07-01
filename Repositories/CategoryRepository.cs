@@ -47,10 +47,10 @@ namespace Repositories
 
         public Models.Category GetById(int categoryId)
         {
-            Category result = new Category();
+            var result = new Category();
             string sqlQuery = $"select * from {tableName} where CategoryID={categoryId}";
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
-            SqlDataReader dataReader = command.ExecuteReader();
+            var dataReader = command.ExecuteReader();
             //load into the result object the returned row from the database
             if (dataReader != null && dataReader.HasRows)
             {
@@ -85,7 +85,8 @@ namespace Repositories
         public bool Update(Models.Category category)
         {
             var sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = string.Format("UPDATE {0} SET CategoryName = @CategoryName, Description = @Description WHERE {1} = @Id", tableName, primaryColumn);
+            sqlCommand.CommandText =
+                $"UPDATE {tableName} SET CategoryName = @CategoryName, Description = @Description WHERE {primaryColumn} = @Id";
             sqlCommand.Parameters.AddWithValue("@Id", category.CategoryID);
             sqlCommand.Parameters.AddWithValue("@CategoryName", category.CategoryName);
             sqlCommand.Parameters.AddWithValue("@Description", category.Description);
@@ -98,7 +99,7 @@ namespace Repositories
             bool result = false;
 
             //Create the SQL Query for deleting an Category
-            string sqlQuery = string.Format("delete from {0} where categoryId = {1}", tableName, categoryId);
+            var sqlQuery = string.Format("delete from {0} where categoryId = {1}", tableName, categoryId);
             //Create a Command object
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             // Execute the command
