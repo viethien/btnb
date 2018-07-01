@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// Supplier model
+    /// </summary>
     public class Supplier
     {
         public int SupplierID { get; set; }
