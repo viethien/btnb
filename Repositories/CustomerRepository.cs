@@ -21,6 +21,7 @@ namespace Repositories
         public List<Supplier> GetAll()
         {
             List<Supplier> result = new List<Supplier>();
+           
             string sqlQuery = string.Format("select SupplierID, PostalCode from {0}", tableName);
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             SqlDataReader dataReader = command.ExecuteReader();
@@ -39,6 +40,7 @@ namespace Repositories
                         Country = dataReader["Country"].ToString(),
                         ContactTitle = dataReader["ContactTitle"].ToString(),
                         ContactName = dataReader["ContactName"].ToString(),
+                  
                         CompanyName = dataReader["Company"].ToString(),
                         City = dataReader["City"].ToString(),
                         Address = dataReader["Address"].ToString()
