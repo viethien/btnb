@@ -21,6 +21,7 @@ namespace Repositories
         public List<Models.Product> GetAll()
         {
             List<Product> result = new List<Product>();
+            
             string sqlQuery = string.Format("select ProductID, ProductName  from {0}", tableName);
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             SqlDataReader dataReader = command.ExecuteReader();
@@ -39,7 +40,8 @@ namespace Repositories
                         CategoryID = int.Parse(dataReader["CategoryID"].ToString()),
                         Discontinued = bool.Parse(dataReader["Discontinued"].ToString()),
                         UnitPrice = decimal.Parse(dataReader["UnitPrice"].ToString()),
-                        UnitsOnOrder = int.Parse(dataReader["Unit"].ToString()),
+                        
+                        UnitsOnOrder = int.Parse(dataReader["UnitOrder"].ToString()),
                     };
                     result.Add(temp);
                 }
