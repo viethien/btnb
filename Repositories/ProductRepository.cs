@@ -21,7 +21,7 @@ namespace Repositories
         public List<Models.Product> GetAll()
         {
             List<Product> result = new List<Product>();
-            string sqlQuery = string.Format("select * from {0}", tableName);
+            string sqlQuery = string.Format("select ProductID, ProductName  from {0}", tableName);
             SqlCommand command = new SqlCommand(sqlQuery, _conn);
             SqlDataReader dataReader = command.ExecuteReader();
             if (dataReader.HasRows)
@@ -39,7 +39,7 @@ namespace Repositories
                         CategoryID = int.Parse(dataReader["CategoryID"].ToString()),
                         Discontinued = bool.Parse(dataReader["Discontinued"].ToString()),
                         UnitPrice = decimal.Parse(dataReader["UnitPrice"].ToString()),
-                        UnitsOnOrder = int.Parse(dataReader["UnitsOnOrder"].ToString()),
+                        UnitsOnOrder = int.Parse(dataReader["Unit"].ToString()),
                     };
                     result.Add(temp);
                 }
