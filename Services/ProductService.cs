@@ -17,7 +17,8 @@ namespace Services
 
         public Models.Product GetById(int productId)
         {
-            return productRepository.GetById(productId);
+			var product = productRepository.GetById(productId)
+            return product;
         }
 
         public int Add(Models.Product product)
