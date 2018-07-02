@@ -39,6 +39,7 @@ namespace Repositories
                         Description = dataReader["CatDescription"].ToString(),
                         CategoryName = dataReader["CategoryName"].ToString()
                     };
+                    // add to list
                     result.Add(temp);
                 }
             }
