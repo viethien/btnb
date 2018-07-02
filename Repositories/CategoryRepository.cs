@@ -27,8 +27,8 @@ namespace Repositories
         {
             var result = new List<Category>();
             string sqlQuery = $"select * from {tableName}";
-            SqlCommand command = new SqlCommand(sqlQuery, _conn);
-            SqlDataReader dataReader = command.ExecuteReader();
+            var command = new SqlCommand(sqlQuery, _conn);
+            var dataReader = command.ExecuteReader();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read())
