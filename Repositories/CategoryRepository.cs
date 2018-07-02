@@ -36,7 +36,7 @@ namespace Repositories
                     var temp = new Category
                     {
                         CategoryID = int.Parse(dataReader["CategoryID"].ToString()),
-                        Description = dataReader["CategoryDescription"].ToString(),
+                        Description = dataReader["CatDescription"].ToString(),
                         CategoryName = dataReader["CategoryName"].ToString()
                     };
                     // add to list
