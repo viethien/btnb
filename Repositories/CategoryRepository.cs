@@ -20,7 +20,7 @@ namespace Repositories
         private string primaryColumn = "CategoryId";
         public CategoryRepository()
         {
-            Repository rep = new Repository();
+            var rep = new Repository();
             _conn = rep.Connection();
         }
         public List<Models.Category> GetAll()
