@@ -26,7 +26,7 @@ namespace Repositories
         public List<Models.Category> GetAll()
         {
             var result = new List<Category>();
-            string sqlQuery = $"select * from {tableName}";
+            string sqlQuery = $"select CategoryID, CategoryName from {tableName}";
             var command = new SqlCommand(sqlQuery, _conn);
             var dataReader = command.ExecuteReader();
             if (dataReader.HasRows)
@@ -36,7 +36,7 @@ namespace Repositories
                     var temp = new Category
                     {
                         CategoryID = int.Parse(dataReader["CategoryID"].ToString()),
-                        Description = dataReader["Description"].ToString(),
+                        Description = dataReader["CategoryDescription"].ToString(),
                         CategoryName = dataReader["CategoryName"].ToString()
                     };
                     // add to list
