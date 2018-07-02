@@ -10,7 +10,8 @@ namespace Services
     public class ProductService:IProductService
     {
         private IProductRepository productRepository = new ProductRepository();
-        public List<Models.Product> GetAll()
+        //get all products
+		public List<Models.Product> GetAll()
         {
             return productRepository.GetAll();
         }
