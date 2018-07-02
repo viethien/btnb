@@ -13,7 +13,8 @@ namespace Services
         //get all products
 		public List<Models.Product> GetAll()
         {
-            return productRepository.GetAll();
+			var all = productRepository.GetAll();
+            return all;
         }
 
         public Models.Product GetById(int productId)
